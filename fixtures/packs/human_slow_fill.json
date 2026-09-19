@@ -1,1 +1,333 @@
-{}
+{
+  "id": "human_slow_fill",
+  "expected_label": 0,
+  "input": {
+    "mode": "live_form",
+    "job": {
+      "id": "job_eng",
+      "slug": "eng",
+      "title": "Senior Software Engineer",
+      "department": "Engineering",
+      "location": "Remote",
+      "jd_text": "We build reliable distributed systems with Go and TypeScript. You will design APIs, improve observability, and mentor engineers. We value clarity, ownership, and pragmatic tradeoffs—not buzzword decks.",
+      "sections": [
+        {
+          "id": "contact",
+          "title": "Contact information",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "label": "First name",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "label": "Last name",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "label": "Email",
+              "required": true,
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "experience",
+          "title": "Experience",
+          "fields": [
+            {
+              "name": "current_title",
+              "type": "text",
+              "label": "Current job title",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "current_company",
+              "type": "text",
+              "label": "Current company",
+              "required": true,
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "questions",
+          "title": "Application questions",
+          "fields": [
+            {
+              "name": "why_role",
+              "type": "textarea",
+              "label": "Why this role?",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "proud_project",
+              "type": "textarea",
+              "label": "Project you are proud of",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "debug_story",
+              "type": "textarea",
+              "label": "Tell us about a hard bug",
+              "required": true,
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "eeo",
+          "title": "EEO",
+          "fields": [
+            {
+              "name": "eeo_voluntary",
+              "type": "select",
+              "label": "Voluntary self-identification",
+              "required": false,
+              "options": [
+                "Decline",
+                "Yes"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "answers": {
+      "first_name": "Alex",
+      "last_name": "Rivera",
+      "email": "alex.rivera@example.com",
+      "current_title": "Staff Engineer",
+      "current_company": "Acme Corp",
+      "why_role": "I enjoy building reliable systems and mentoring teams. This role matches my experience with distributed services and clear API design.",
+      "proud_project": "I led a migration that cut incident rate in half while keeping deploy frequency steady. We documented tradeoffs and trained the team on observability.",
+      "debug_story": "We traced a rare race to a cache invalidation bug. I added metrics and a regression test so we could ship confidently."
+    },
+    "events": [
+      {
+        "t_ms": 0,
+        "type": "focus",
+        "field": "first_name",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 8000,
+        "type": "input",
+        "field": "first_name",
+        "section": null,
+        "input_len": 12,
+        "paste_len": null
+      },
+      {
+        "t_ms": 13000,
+        "type": "blur",
+        "field": "first_name",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 20000,
+        "type": "focus",
+        "field": "last_name",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 28000,
+        "type": "input",
+        "field": "last_name",
+        "section": null,
+        "input_len": 12,
+        "paste_len": null
+      },
+      {
+        "t_ms": 33000,
+        "type": "blur",
+        "field": "last_name",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 40000,
+        "type": "focus",
+        "field": "email",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 48000,
+        "type": "input",
+        "field": "email",
+        "section": null,
+        "input_len": 12,
+        "paste_len": null
+      },
+      {
+        "t_ms": 53000,
+        "type": "blur",
+        "field": "email",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 60000,
+        "type": "focus",
+        "field": "current_title",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 68000,
+        "type": "input",
+        "field": "current_title",
+        "section": null,
+        "input_len": 12,
+        "paste_len": null
+      },
+      {
+        "t_ms": 73000,
+        "type": "blur",
+        "field": "current_title",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 80000,
+        "type": "focus",
+        "field": "current_company",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 88000,
+        "type": "input",
+        "field": "current_company",
+        "section": null,
+        "input_len": 12,
+        "paste_len": null
+      },
+      {
+        "t_ms": 93000,
+        "type": "blur",
+        "field": "current_company",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 100000,
+        "type": "focus",
+        "field": "why_role",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 108000,
+        "type": "input",
+        "field": "why_role",
+        "section": null,
+        "input_len": 120,
+        "paste_len": null
+      },
+      {
+        "t_ms": 113000,
+        "type": "blur",
+        "field": "why_role",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 120000,
+        "type": "focus",
+        "field": "proud_project",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 128000,
+        "type": "input",
+        "field": "proud_project",
+        "section": null,
+        "input_len": 120,
+        "paste_len": null
+      },
+      {
+        "t_ms": 133000,
+        "type": "blur",
+        "field": "proud_project",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 140000,
+        "type": "focus",
+        "field": "debug_story",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 148000,
+        "type": "input",
+        "field": "debug_story",
+        "section": null,
+        "input_len": 120,
+        "paste_len": null
+      },
+      {
+        "t_ms": 153000,
+        "type": "blur",
+        "field": "debug_story",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 140000,
+        "type": "submit",
+        "field": null,
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      }
+    ],
+    "signals": {
+      "visitor_id": "visitor_human_1",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X) Chrome/120.0.0.0",
+      "webdriver": false,
+      "tz": "America/New_York",
+      "languages": [
+        "en-US"
+      ]
+    },
+    "ip": "192.168.1.44",
+    "burst": {
+      "visitor_n": 0,
+      "ip_n": 0
+    }
+  }
+}

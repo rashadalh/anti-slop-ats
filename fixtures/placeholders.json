@@ -1,1 +1,8 @@
-[]
+[
+  "\\[Company\\]",
+  "\\[Company Name\\]",
+  "lorem ipsum",
+  "\\bTBD\\b",
+  "\\bN/A\\b",
+  "\\{\\{.*\\}\\}"
+]

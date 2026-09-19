@@ -1,1 +1,37 @@
-{}
+{
+  "action": "application_submitted",
+  "signature": "deadbeef",
+  "candidate": {
+    "first_name": "Jordan",
+    "last_name": "Lee",
+    "email": "jordan.lee@example.com"
+  },
+  "application": {
+    "id": 123456,
+    "location": "52.12.34.56",
+    "answers": [
+      {
+        "question": "Why this role?",
+        "answer": "I admire your engineering culture. Some answers still say [Company] and TBD on start date."
+      },
+      {
+        "question": "Project you are proud of",
+        "answer": "I built a metrics pipeline that helped the team ship safely."
+      },
+      {
+        "question": "Tell us about a hard bug",
+        "answer": "We found a deadlock under load and added backpressure."
+      }
+    ],
+    "custom_fields": [
+      {
+        "name": "Current job title",
+        "value": "Software Engineer"
+      },
+      {
+        "name": "Current company",
+        "value": "Example Inc"
+      }
+    ]
+  }
+}
