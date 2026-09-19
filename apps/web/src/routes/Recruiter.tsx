@@ -42,8 +42,8 @@ export default function Recruiter() {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-semibold text-white">Recruiter review</h2>
-        <p className="mt-2 text-sm text-slate-400">
+        <h2 className="text-2xl font-semibold">Recruiter review</h2>
+        <p className="mt-2 text-sm" style={{ color: "var(--gh-text-60)" }}>
           Live detections with probability, confidence, and feature reasoning.
           Overrides change the displayed label only—not the model probability.
         </p>
@@ -52,7 +52,7 @@ export default function Recruiter() {
       <ReplayToggle onReplayed={refresh} />
 
       {detections.length === 0 ? (
-        <p className="text-slate-400">
+        <p style={{ color: "var(--gh-text-60)" }}>
           No detections yet. Submit an application or run a replay pack.
         </p>
       ) : (

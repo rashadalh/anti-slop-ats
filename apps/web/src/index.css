@@ -1,8 +1,31 @@
 @import "tailwindcss";
 
+:root {
+  --gh-bg: #0a0a0a;
+  --gh-text: #ffffff;
+  --gh-text-60: #ffffff99;
+  --gh-text-30: #ffffff4d;
+  --gh-text-10: #ffffff1a;
+  --gh-link: #d9d9d9;
+  --gh-btn: #ffffff;
+  --gh-btn-hover: #d9d9d9;
+  --gh-btn-text: #000000;
+  --gh-list-hover: #222222;
+  --gh-asterisk: #b52617;
+  --gh-focus: #d0d0d0;
+  --gh-label: #9aa8a2;
+}
+
 @layer base {
+  html {
+    background-color: var(--gh-bg);
+  }
+
   body {
-    @apply min-h-screen bg-slate-950 text-slate-100 antialiased;
+    @apply min-h-screen antialiased;
+    background-color: var(--gh-bg);
+    color: var(--gh-text);
+    font-family: Inter, "Untitled Sans", ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "kern" 1, "liga" 1;
   }
 
@@ -20,35 +43,205 @@
 }
 
 @layer components {
-  .apply-page {
-    @apply pb-8;
+  .gh-board {
+    @apply mx-auto w-full px-6 py-10 sm:px-8;
+    max-width: 962px;
   }
 
-  .apply-job-panel {
-    @apply rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-900/70 to-slate-950/90 p-6 shadow-xl shadow-black/20;
+  .gh-logo {
+    @apply mb-8 inline-flex items-center gap-3 no-underline;
+    color: var(--gh-text);
   }
 
-  .apply-section-card {
-    @apply overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/40 shadow-xl shadow-black/25;
+  .gh-logo:hover {
+    filter: none;
   }
 
-  .apply-section-footer {
-    @apply sticky bottom-0 border-t border-slate-800/80 bg-slate-950/90 backdrop-blur-md;
+  .gh-back {
+    @apply inline-flex items-center gap-1 text-base no-underline;
+    color: var(--gh-link);
   }
 
-  .apply-breadcrumb {
-    @apply inline-flex text-sm font-medium text-slate-400 transition-colors hover:text-white;
+  .gh-back:hover {
+    filter: brightness(60%);
   }
 
-  .apply-link {
-    @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500;
+  .gh-title {
+    @apply m-0 text-[1.5rem] font-normal leading-8;
+    color: var(--gh-text);
   }
 
-  .apply-link-secondary {
-    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-700 px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-slate-600 hover:bg-slate-900/60;
+  .gh-title-lg {
+    @apply text-[2rem] leading-10 sm:text-[2.5rem] sm:leading-[3rem];
   }
 
-  .apply-empty-state {
-    @apply rounded-2xl border border-slate-800 bg-slate-900/40 p-8;
+  .gh-link {
+    color: var(--gh-link);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .gh-link:hover {
+    filter: brightness(60%);
+  }
+
+  .gh-pill {
+    @apply inline-flex cursor-pointer items-center justify-center border-0 px-6 py-2 text-base leading-6;
+    border-radius: 50px;
+    background-color: var(--gh-btn);
+    color: var(--gh-btn-text);
+    transition: background 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .gh-pill:hover:not(:disabled) {
+    background-color: var(--gh-btn-hover);
+    box-shadow: #0000004d 0 2px 6px;
+  }
+
+  .gh-pill:disabled {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .gh-pill-secondary {
+    @apply inline-flex cursor-pointer items-center justify-center px-6 py-2 text-base leading-6;
+    border-radius: 50px;
+    background: transparent;
+    border: 1px solid var(--gh-link);
+    color: var(--gh-link);
+  }
+
+  .gh-pill-secondary:hover:not(:disabled) {
+    filter: brightness(60%);
+  }
+
+  .gh-pill-secondary:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .gh-divider {
+    border: 0;
+    border-bottom: 1px solid var(--gh-text-30);
+    margin: 2rem 0;
+  }
+
+  .gh-location {
+    @apply mt-1 flex items-start gap-1 text-base leading-6;
+    color: var(--gh-text);
+  }
+
+  .gh-prose {
+    @apply text-base leading-6;
+    color: var(--gh-text);
+  }
+
+  .gh-prose p + p {
+    margin-top: 1rem;
+  }
+
+  .gh-prose h3 {
+    @apply mt-8 mb-3 text-base font-bold tracking-wide;
+  }
+
+  .gh-alert {
+    @apply mt-8 flex gap-4 rounded-[5px] p-4;
+    border: 1px solid var(--gh-text-30);
+  }
+
+  .gh-field {
+    max-width: 600px;
+  }
+
+  .gh-field-wide {
+    max-width: 900px;
+  }
+
+  .gh-input-shell {
+    @apply relative w-full cursor-text rounded-[5px];
+    outline: 1px solid var(--gh-text-30);
+    background: var(--gh-bg);
+  }
+
+  .gh-input-shell:focus-within {
+    outline: 1px solid var(--gh-focus);
+  }
+
+  .gh-label {
+    @apply block px-4 pt-2 text-[0.8125rem] font-bold leading-[1.125rem];
+    color: var(--gh-label);
+  }
+
+  .gh-label .req {
+    color: var(--gh-asterisk);
+    margin-left: 2px;
+  }
+
+  .gh-control {
+    @apply w-full border-0 bg-transparent px-4 pb-2.5 pt-1 text-base leading-6 outline-none;
+    color: var(--gh-text);
+    font-family: inherit;
+  }
+
+  .gh-control::placeholder {
+    color: var(--gh-text-60);
+  }
+
+  select.gh-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill='%23ffffff' d='M11.45 16.07 5.91 9.14C5.54 8.68 5.87 8 6.46 8h11.08c.59 0 .91.68.55 1.14l-5.55 6.93c-.28.35-.81.35-1.09 0Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+  }
+
+  textarea.gh-control {
+    min-height: 6rem;
+    resize: vertical;
+  }
+
+  .gh-jobs-table {
+    @apply w-full border-collapse text-left;
+  }
+
+  .gh-jobs-table th {
+    @apply py-2 text-sm font-normal;
+    color: var(--gh-text-60);
+    border-bottom: 1px solid var(--gh-text-30);
+  }
+
+  .gh-jobs-table td {
+    border-bottom: 1px solid var(--gh-text-30);
+    vertical-align: middle;
+  }
+
+  .gh-jobs-table td:first-of-type {
+    width: 50%;
+  }
+
+  .gh-jobs-table tbody tr:hover {
+    background-color: var(--gh-list-hover);
+  }
+
+  .gh-jobs-table tbody tr:hover .gh-job-title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .gh-job-link {
+    @apply block px-1 py-3 text-inherit no-underline;
+  }
+
+  .gh-job-title {
+    @apply font-bold;
+  }
+
+  .gh-footer {
+    @apply mt-16 flex flex-col items-center gap-3 pb-8 text-sm;
+    color: var(--gh-text-60);
+  }
+
+  .gh-recruiter {
+    @apply mx-auto max-w-5xl px-4 py-8 sm:px-6;
   }
 }
