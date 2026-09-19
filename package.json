@@ -7,6 +7,7 @@
     "node": "22.14.0"
   },
   "scripts": {
+    "dev": "npm run dev -w @anti-slop/web",
     "test:scorer": "npm run test -w @anti-slop/scorer"
   }
 }

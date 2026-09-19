@@ -1,5 +1,5 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import { createHash, randomBytes } from "node:crypto";
+import { randomToken, sha256Hex } from "./crypto.ts";
 import {
   ipHashPepper,
   scoreApplication,
@@ -29,8 +29,8 @@ const packs: Record<ReplayPackId, ReplayPack> = {
 };
 
 function requireEnv(): { url: string; anonKey: string } {
-  const url = process.env.VITE_SUPABASE_URL ?? "";
-  const anonKey = process.env.VITE_SUPABASE_ANON_KEY ?? "";
+  const url = import.meta.env.VITE_SUPABASE_URL ?? "";
+  const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY ?? "";
   if (!url || !anonKey) {
     throw new Error("Supabase env not configured");
   }
@@ -49,10 +49,8 @@ function getClient(): SupabaseClient {
 const detectionCache: Detection[] = [];
 const listeners = new Set<(d: Detection) => void>();
 
-function hashIp(ip: string): string {
-  return createHash("sha256")
-    .update(ipHashPepper() + ip)
-    .digest("hex");
+async function hashIp(ip: string): Promise<string> {
+  return sha256Hex(ipHashPepper() + ip);
 }
 
 function remember(d: Detection): void {
@@ -105,12 +103,12 @@ export const supabaseBackend: BackendPort = {
 
   async createSession(job_id, signals, ip) {
     const sb = getClient();
-    const session_id = randomBytes(12).toString("base64url");
+    const session_id = randomToken(12);
     const { error } = await sb.from("application_sessions").insert({
       id: session_id,
       job_id,
       visitor_id: signals.visitor_id,
-      ip_hash: ip ? hashIp(ip) : "",
+      ip_hash: ip ? await hashIp(ip) : "",
       started_at_ms: Date.now(),
     });
     if (error) throw new Error(error.message);

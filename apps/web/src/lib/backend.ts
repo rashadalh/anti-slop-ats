@@ -3,8 +3,8 @@ import { localBackend } from "./localBackend.ts";
 import { supabaseBackend } from "./supabaseBackend.ts";
 
 export function selectBackend(): BackendPort {
-  const url = process.env.VITE_SUPABASE_URL ?? "";
-  const key = process.env.VITE_SUPABASE_ANON_KEY ?? "";
+  const url = import.meta.env.VITE_SUPABASE_URL ?? "";
+  const key = import.meta.env.VITE_SUPABASE_ANON_KEY ?? "";
   if (url && key) return supabaseBackend;
   return localBackend;
 }
