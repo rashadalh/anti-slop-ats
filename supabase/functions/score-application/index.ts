@@ -5,7 +5,7 @@ import {
   BURST_WINDOW_S,
 } from "../_shared/scorer.ts";
 import type { Job, TelemetryEvent, ClientSignals } from "../../../packages/scorer/src/types.ts";
-import { corsHeaders, jsonResponse, optionsResponse } from "../_shared/cors.ts";
+import { jsonResponse, optionsResponse } from "../_shared/cors.ts";
 
 async function hashEmail(email: string): Promise<string> {
   const data = new TextEncoder().encode(emailHashPepper() + email);
@@ -53,9 +53,9 @@ async function bumpBurst(
 }
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return optionsResponse();
+  if (req.method === "OPTIONS") return optionsResponse(req);
   if (req.method !== "POST") {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: "POST only" }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: "POST only" }, 422, req);
   }
 
   let body: {
@@ -66,14 +66,14 @@ Deno.serve(async (req) => {
   try {
     body = await req.json();
   } catch {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: "invalid json" }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: "invalid json" }, 422, req);
   }
 
   const session_id = body.session_id;
   const answers = body.answers ?? {};
   const client_signals = body.client_signals;
   if (!session_id || !client_signals) {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: "missing fields" }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: "missing fields" }, 422, req);
   }
 
   const supabase = createClient(
@@ -87,7 +87,7 @@ Deno.serve(async (req) => {
     .eq("id", session_id)
     .maybeSingle();
   if (sessErr || !session) {
-    return jsonResponse({ error: "NOT_FOUND", detail: "session" }, 404);
+    return jsonResponse({ error: "NOT_FOUND", detail: "session" }, 404, req);
   }
 
   const { data: jobRow, error: jobErr } = await supabase
@@ -96,7 +96,7 @@ Deno.serve(async (req) => {
     .eq("id", session.job_id)
     .maybeSingle();
   if (jobErr || !jobRow) {
-    return jsonResponse({ error: "JOB_NOT_FOUND", detail: session.job_id }, 404);
+    return jsonResponse({ error: "JOB_NOT_FOUND", detail: session.job_id }, 404, req);
   }
 
   const job: Job = {
@@ -193,8 +193,8 @@ Deno.serve(async (req) => {
 
   const { error: detErr } = await supabase.from("detections").insert(detection);
   if (detErr) {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: detErr.message }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: detErr.message }, 422, req);
   }
 
-  return jsonResponse(detection);
+  return jsonResponse(detection, 200, req);
 });
