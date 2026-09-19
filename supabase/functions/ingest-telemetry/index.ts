@@ -1,5 +1,5 @@
 import { createClient } from "npm:@supabase/supabase-js@2.116.0";
-import { corsHeaders, jsonResponse, optionsResponse } from "../_shared/cors.ts";
+import { jsonResponse, optionsResponse } from "../_shared/cors.ts";
 
 type TelemetryEvent = {
   t_ms: number;
@@ -11,22 +11,22 @@ type TelemetryEvent = {
 };
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return optionsResponse();
+  if (req.method === "OPTIONS") return optionsResponse(req);
   if (req.method !== "POST") {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: "POST only" }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: "POST only" }, 422, req);
   }
 
   let body: { session_id?: string; events?: TelemetryEvent[] };
   try {
     body = await req.json();
   } catch {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: "invalid json" }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: "invalid json" }, 422, req);
   }
 
   const session_id = body.session_id;
   const batch = body.events;
   if (!session_id || !Array.isArray(batch)) {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: "missing fields" }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: "missing fields" }, 422, req);
   }
 
   const supabase = createClient(
@@ -46,8 +46,8 @@ Deno.serve(async (req) => {
 
   const { error } = await supabase.from("telemetry_events").insert(rows);
   if (error) {
-    return jsonResponse({ error: "VALIDATION_ERROR", detail: error.message }, 422);
+    return jsonResponse({ error: "VALIDATION_ERROR", detail: error.message }, 422, req);
   }
 
-  return jsonResponse({ accepted: rows.length });
+  return jsonResponse({ accepted: rows.length }, 200, req);
 });
