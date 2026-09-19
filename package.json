@@ -1,6 +1,7 @@
 {
   "name": "anti-slop-ats",
   "private": true,
+  "type": "module",
   "workspaces": ["apps/web", "packages/scorer"],
   "engines": {
     "node": "22.14.0"
