@@ -14,7 +14,7 @@ Sequence:
 
 1. `supabase/config.toml`: function JWT settings — `ingest-telemetry` and `score-application` verify JWT; `greenhouse-webhook` `verify_jwt = false` (SPEC.md §5.4).
 2. `migrations/0001_init.sql`: tables in SPEC.md §3.17 including `known_ips`. RLS policies as specified. Enable Realtime on `detections`. Indexes on `detections.created_at`, `known_fingerprints.visitor_id`, `known_ips.ip_hash`.
-3. `seed.sql`: insert the two jobs from `fixtures/jobs.json` (inline SQL or documented copy). No live PII.
+3. `seed.sql`: insert every job from `fixtures/jobs.json` (inline SQL or documented copy). No live PII.
 4. `functions/_shared/cors.ts`: OPTIONS + JSON headers for the Vite origin (`http://127.0.0.1:5173`).
 5. `functions/_shared/scorer.ts`: re-export `scoreApplication`, `mapGreenhousePayload`, `verifyGreenhouseSignature`.
 6. `ingest-telemetry`: parse SPEC.md §5.1; insert events; `{ accepted }`.
