@@ -5,39 +5,96 @@
     "title": "Senior Software Engineer",
     "department": "Engineering",
     "location": "Remote",
-    "jd_text": "We build reliable distributed systems with Go and TypeScript. You will design APIs, improve observability, and mentor engineers. We value clarity, ownership, and pragmatic tradeoffs—not buzzword decks.",
+    "jd_text": "We build reliable distributed systems with Go and TypeScript. You will design APIs, improve observability, and mentor engineers. We value clarity, ownership, and pragmatic tradeoffs\u2014not buzzword decks.",
     "sections": [
       {
         "id": "contact",
         "title": "Contact information",
         "fields": [
-          { "name": "first_name", "type": "text", "label": "First name", "required": true, "options": [] },
-          { "name": "last_name", "type": "text", "label": "Last name", "required": true, "options": [] },
-          { "name": "email", "type": "email", "label": "Email", "required": true, "options": [] }
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
         ]
       },
       {
         "id": "experience",
         "title": "Experience",
         "fields": [
-          { "name": "current_title", "type": "text", "label": "Current job title", "required": true, "options": [] },
-          { "name": "current_company", "type": "text", "label": "Current company", "required": true, "options": [] }
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
         ]
       },
       {
         "id": "questions",
         "title": "Application questions",
         "fields": [
-          { "name": "why_role", "type": "textarea", "label": "Why this role?", "required": true, "options": [] },
-          { "name": "proud_project", "type": "textarea", "label": "Project you are proud of", "required": true, "options": [] },
-          { "name": "debug_story", "type": "textarea", "label": "Tell us about a hard bug", "required": true, "options": [] }
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why this role?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "proud_project",
+            "type": "textarea",
+            "label": "Project you are proud of",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "debug_story",
+            "type": "textarea",
+            "label": "Tell us about a hard bug",
+            "required": true,
+            "options": []
+          }
         ]
       },
       {
         "id": "eeo",
         "title": "EEO",
         "fields": [
-          { "name": "eeo_voluntary", "type": "select", "label": "Voluntary self-identification", "required": false, "options": ["Decline", "Yes"] }
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
         ]
       }
     ]
@@ -54,33 +111,1690 @@
         "id": "contact",
         "title": "Contact information",
         "fields": [
-          { "name": "first_name", "type": "text", "label": "First name", "required": true, "options": [] },
-          { "name": "last_name", "type": "text", "label": "Last name", "required": true, "options": [] },
-          { "name": "email", "type": "email", "label": "Email", "required": true, "options": [] }
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
         ]
       },
       {
         "id": "experience",
         "title": "Experience",
         "fields": [
-          { "name": "current_title", "type": "text", "label": "Current job title", "required": true, "options": [] },
-          { "name": "years_ops", "type": "text", "label": "Years in operations", "required": true, "options": [] }
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "years_ops",
+            "type": "text",
+            "label": "Years in operations",
+            "required": true,
+            "options": []
+          }
         ]
       },
       {
         "id": "questions",
         "title": "Application questions",
         "fields": [
-          { "name": "why_ops", "type": "textarea", "label": "Why operations?", "required": true, "options": [] },
-          { "name": "program_example", "type": "textarea", "label": "Describe a program you led", "required": true, "options": [] },
-          { "name": "metrics", "type": "textarea", "label": "How do you measure success?", "required": true, "options": [] }
+          {
+            "name": "why_ops",
+            "type": "textarea",
+            "label": "Why operations?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "program_example",
+            "type": "textarea",
+            "label": "Describe a program you led",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "metrics",
+            "type": "textarea",
+            "label": "How do you measure success?",
+            "required": true,
+            "options": []
+          }
         ]
       },
       {
         "id": "eeo",
         "title": "EEO",
         "fields": [
-          { "name": "eeo_voluntary", "type": "select", "label": "Voluntary self-identification", "required": false, "options": ["Decline", "Yes"] }
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_exceptional_swe",
+    "slug": "exceptional-swe",
+    "title": "Exceptional Software Engineer",
+    "department": "Engineering",
+    "location": "Palo Alto, CA",
+    "jd_text": "Ship production systems around large models, products, and platform. You write simple code, debug across layers, and take ownership from design through incident response. We care about taste and correctness more than stack fashion.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why this role?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "proud_project",
+            "type": "textarea",
+            "label": "A system you owned end to end",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "debug_story",
+            "type": "textarea",
+            "label": "A production incident you drove to root cause",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_ml_recs",
+    "slug": "ml-recommendation-systems",
+    "title": "Machine Learning Engineer \u2014 Recommendation Systems",
+    "department": "Engineering",
+    "location": "Palo Alto, CA",
+    "jd_text": "Build ranking and retrieval for consumer products. You will train models, measure offline and online quality, and work with product on objectives that are not just click-through. Strong Python, ranking literature, and production serving experience.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why recommendation systems here?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "model_story",
+            "type": "textarea",
+            "label": "A ranking or retrieval model you shipped",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "eval_story",
+            "type": "textarea",
+            "label": "How you caught a bad offline-online gap",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_mts_cloud",
+    "slug": "mts-cloud-infrastructure",
+    "title": "Member of Technical Staff \u2014 Cloud Infrastructure",
+    "department": "Engineering",
+    "location": "Palo Alto, CA",
+    "jd_text": "Own compute, networking, and multi-tenant isolation for training and inference. You will design APIs, capacity, and reliability for clusters that cannot afford mystery downtime. Expect Rust, C++, or Go plus real on-call.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why cloud infrastructure?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "scale_story",
+            "type": "textarea",
+            "label": "A capacity or isolation problem you solved",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "oncall_story",
+            "type": "textarea",
+            "label": "An on-call event that changed how you design",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_swe_evals",
+    "slug": "swe-evals",
+    "title": "Software Engineer \u2014 Evals",
+    "department": "Engineering",
+    "location": "Palo Alto, CA",
+    "jd_text": "Build evaluation harnesses that tell us whether a model actually got better. You will design datasets, graders, and pipelines that researchers trust, then keep them honest as products move. Clarity beats clever metrics.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why evals?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "harness_story",
+            "type": "textarea",
+            "label": "An evaluation you designed that changed a decision",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "gaming_story",
+            "type": "textarea",
+            "label": "How you stopped a metric from being gamed",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_backend_api",
+    "slug": "backend-api-london",
+    "title": "Backend Engineer \u2014 API",
+    "department": "Engineering",
+    "location": "London, England, United Kingdom",
+    "jd_text": "Design and operate public and internal APIs with strict latency, auth, and correctness bars. You will work in TypeScript or Go, write boring reliable services, and partner with product on versioning that does not strand clients.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why this API role?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "api_story",
+            "type": "textarea",
+            "label": "An API you designed or took over",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "compat_story",
+            "type": "textarea",
+            "label": "How you handled a breaking-change risk",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_ios",
+    "slug": "mobile-ios",
+    "title": "Mobile iOS Engineer",
+    "department": "Engineering",
+    "location": "Palo Alto, CA; New York, NY",
+    "jd_text": "Build iOS clients for consumer products. You care about performance, accessibility, and shipping weekly. Swift, UIKit or SwiftUI, and a bias toward measuring what users actually do.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why iOS here?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "app_story",
+            "type": "textarea",
+            "label": "A client feature you shipped",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "perf_story",
+            "type": "textarea",
+            "label": "A performance or crash issue you fixed",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_cuda",
+    "slug": "swe-training-inference",
+    "title": "Software Engineer \u2014 Training / Inference (C++)",
+    "department": "Infrastructure",
+    "location": "Palo Alto, CA",
+    "jd_text": "Work on kernels, runtime, and serving path in C++. You will squeeze latency and utilization from GPUs, debug silent numerical bugs, and partner with researchers who need the stack to just work.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why training and inference systems?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "kernel_story",
+            "type": "textarea",
+            "label": "A runtime or kernel change you made",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "numeric_story",
+            "type": "textarea",
+            "label": "A numerical or perf bug you tracked down",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_net_ml",
+    "slug": "network-ml-infrastructure",
+    "title": "Network Engineer \u2014 ML Infrastructure (High-Speed Interconnects)",
+    "department": "Infrastructure",
+    "location": "Palo Alto, CA",
+    "jd_text": "Design and operate high-bandwidth fabrics for training clusters. You will reason about congestion, optics, and failure domains, then keep the network boring while the models are not.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why ML networking?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "fabric_story",
+            "type": "textarea",
+            "label": "A fabric or interconnect design you owned",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "outage_story",
+            "type": "textarea",
+            "label": "A network incident and what you changed after",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_appsec",
+    "slug": "application-security",
+    "title": "Application Security Engineer",
+    "department": "Information Security",
+    "location": "Palo Alto, CA",
+    "jd_text": "Partner with product teams on threat models, reviews, and detection for first-party apps. You write exploits against our own code so attackers do not, then land fixes engineers will actually ship.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why application security?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "vuln_story",
+            "type": "textarea",
+            "label": "A vulnerability class you reduced in production",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "partner_story",
+            "type": "textarea",
+            "label": "How you got engineers to take a finding seriously",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_human_data_eng",
+    "slug": "human-data-engineer",
+    "title": "Human Data \u2014 Engineer",
+    "department": "Human Data",
+    "location": "Palo Alto, CA",
+    "jd_text": "Build tooling, quality pipelines, and task platforms for human data used in training. You will care about rater UX, leakage, and throughput without treating people as an API.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why human data engineering?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "pipeline_story",
+            "type": "textarea",
+            "label": "A labeling or eval pipeline you built",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "quality_story",
+            "type": "textarea",
+            "label": "How you measured and raised data quality",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_ai_tutor_swe",
+    "slug": "ai-tutor-software-engineering",
+    "title": "AI Tutor \u2014 Software Engineering",
+    "department": "Human Data",
+    "location": "Remote International",
+    "jd_text": "Create and review software-engineering tasks and gold answers used to train models. You write clear problems, catch sloppy solutions, and explain why a patch is wrong without being precious about style.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current role or studies",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "languages",
+            "type": "text",
+            "label": "Languages you can tutor in",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why tutoring software engineering?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "task_story",
+            "type": "textarea",
+            "label": "A programming task you would use to test a model",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "rubric_story",
+            "type": "textarea",
+            "label": "How you grade correctness vs. overfit solutions",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_dc_swe",
+    "slug": "swe-data-center-memphis",
+    "title": "Software Engineer, Data Center \u2014 Memphis",
+    "department": "Data Center",
+    "location": "Southaven, MS; Memphis, TN",
+    "jd_text": "Write software that runs physical infrastructure: telemetry, automation, and tooling for a supercomputer site. You will sit close to operators and hardware, not only dashboards.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why data-center software?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "ops_story",
+            "type": "textarea",
+            "label": "Software you built for operators or hardware",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "constraint_story",
+            "type": "textarea",
+            "label": "A constraint unique to on-site systems",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_dc_tech",
+    "slug": "dc-ops-technician-memphis",
+    "title": "Data Center Operations Technician \u2014 Memphis",
+    "department": "Data Center",
+    "location": "Southaven, MS; Memphis, TN",
+    "jd_text": "Keep site operations running: racks, power, cooling, tickets, and hands-on response. You follow procedures, escalate clearly, and do not guess around high-voltage or thermal limits.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "years_facilities",
+            "type": "text",
+            "label": "Years in facilities or data center ops",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why this technician role?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "hands_on",
+            "type": "textarea",
+            "label": "A hands-on incident or install you handled",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "safety_story",
+            "type": "textarea",
+            "label": "How you work around safety-critical systems",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_grok_product",
+    "slug": "mts-grok-product",
+    "title": "Member of Technical Staff \u2014 Grok Product",
+    "department": "Product",
+    "location": "Palo Alto, CA",
+    "jd_text": "Full-stack product engineering on the consumer assistant. You will ship UI, APIs, and model-product glue, then sit in the metrics. Strong product sense and willingness to delete features.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "current_company",
+            "type": "text",
+            "label": "Current company",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why Grok product?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "product_story",
+            "type": "textarea",
+            "label": "A product change you shipped and how you measured it",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "tradeoff_story",
+            "type": "textarea",
+            "label": "A tradeoff where you cut scope on purpose",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_growth",
+    "slug": "growth-marketing-manager",
+    "title": "Growth Marketing Manager",
+    "department": "G&A",
+    "location": "Palo Alto, CA; New York, NY",
+    "jd_text": "Own acquisition experiments, creative testing, and channel mix. You will write briefs, read the numbers yourself, and kill campaigns that do not compound. No vanity dashboards.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "channels",
+            "type": "text",
+            "label": "Channels you have owned",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why growth here?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "experiment_story",
+            "type": "textarea",
+            "label": "An experiment that moved a real metric",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "kill_story",
+            "type": "textarea",
+            "label": "A campaign or channel you shut down and why",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_safety_pm",
+    "slug": "pm-harmful-activity",
+    "title": "Program Manager, Harmful Activity",
+    "department": "Safety",
+    "location": "Palo Alto, CA; Bastrop, TX; New York, NY",
+    "jd_text": "Run programs against spam, scams, and coordinated abuse. You will set policy with legal and product, measure enforcement, and keep operations from becoming theater.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact information",
+        "fields": [
+          {
+            "name": "first_name",
+            "type": "text",
+            "label": "First name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "last_name",
+            "type": "text",
+            "label": "Last name",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "email",
+            "type": "email",
+            "label": "Email",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          {
+            "name": "current_title",
+            "type": "text",
+            "label": "Current job title",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "years_ops",
+            "type": "text",
+            "label": "Years in operations",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Application questions",
+        "fields": [
+          {
+            "name": "why_role",
+            "type": "textarea",
+            "label": "Why safety operations?",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "program_example",
+            "type": "textarea",
+            "label": "A trust-and-safety program you ran",
+            "required": true,
+            "options": []
+          },
+          {
+            "name": "metrics",
+            "type": "textarea",
+            "label": "How you measured harm reduction without over-enforcing",
+            "required": true,
+            "options": []
+          }
+        ]
+      },
+      {
+        "id": "eeo",
+        "title": "EEO",
+        "fields": [
+          {
+            "name": "eeo_voluntary",
+            "type": "select",
+            "label": "Voluntary self-identification",
+            "required": false,
+            "options": [
+              "Decline",
+              "Yes"
+            ]
+          }
         ]
       }
     ]

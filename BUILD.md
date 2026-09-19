@@ -52,8 +52,8 @@ Ship the PLAN.md demo: a Vite careers form and recruiter UI that score auto-appl
 
 ### Exit-check (orchestrator runs this)
 
-- Tier-1: `test -f apps/web/vite.config.ts && test -f packages/scorer/package.json && python3 -c "import json; j=json.load(open('fixtures/jobs.json')); assert len(j)==2; assert j[0]['title']!=j[1]['title'] and j[0]['department']!=j[1]['department']"`
-- Expected: manifests exist; two jobs with distinct titles and departments.
+- Tier-1: `test -f apps/web/vite.config.ts && test -f packages/scorer/package.json && python3 -c "import json,re; j=json.load(open('fixtures/jobs.json')); n=int(re.search(r'JOB_COUNT = (\\d+)', open('packages/scorer/src/constants.ts').read()).group(1)); assert len(j)==n>=2; assert j[0]['id']=='job_eng' and j[1]['id']=='job_ops'; assert len({x['id'] for x in j})==len(j)"`
+- Expected: manifests exist; job catalog length matches `JOB_COUNT`; `job_eng` and `job_ops` remain first.
 
 ### Commit
 

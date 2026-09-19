@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-Author two jobs, lexicons, CIDRs, four replay packs, and the Harvest webhook fixture. This area is ground truth for labels. It does not implement the logistic.
+Author the job catalog, lexicons, CIDRs, four replay packs, and the Harvest webhook fixture. This area is ground truth for labels. It does not implement the logistic.
 
 ## 2. Files owned
 
@@ -16,7 +16,7 @@ Sequence:
 2. `buzzwords.json`: stuffing tokens (`synergy`, `leverage`, `stakeholders`, `robust`, `utilize`, `streamline`, `best-of-breed`, `results-driven`).
 3. `aiisms.json`: `delve`, `in today's fast-paced`, `passionate about leveraging`, `I am writing to express`.
 4. `datacenter_cidrs.json`: `{cidr,name}[]` covering any pack `ip` used as datacenter (e.g. `3.0.0.0/8`).
-5. `jobs.json`: exactly two jobs, slugs stable (`job-eng`, `job-ops` or `job_eng` matching SPEC.md §3.3 `id` — use `id` `"job_eng"` / `"job_ops"` and slugs `"eng"` / `"ops"`). Sections: contact (first_name, last_name, email), experience (2–3 fields), 3–5 textareas, optional eeo. Distinct titles/departments. `jd_text` long enough for overlap tests.
+5. `jobs.json`: `JOB_COUNT` jobs. Stable demo ids `"job_eng"` / `"job_ops"` (slugs `"eng"` / `"ops"`) remain first for packs and Greenhouse. Extra roles are xAI/X-inspired catalog entries with distinct slugs. Sections: contact (first_name, last_name, email), experience (2–3 fields), 3–5 textareas, optional eeo. Distinct titles. `jd_text` long enough for overlap tests.
 6. Packs (SPEC.md §3.12):
    - `human_slow_fill`: ordered focuses, `duration_ms >= expected_human_ms`, paste_ratio ~ 0, no placeholders, rfc1918 ip, `webdriver=false`, `expected_label=0`.
    - `bot_burst`: `duration_auto` path (duration << expected), `section_jumps >= 2`, high paste, `burst.visitor_n >= BURST_N`, `expected_label=1`.
@@ -34,4 +34,4 @@ Locked decisions: four packs only. Synthetic corpus.
 
 ## 4. Done when
 
-`fixtures/jobs.json` length is 2. Four packs parse as `ReplayPack`. `scripts/replay.ts` (owned by SCORER) exits 0 against them. Greenhouse fixture is valid JSON and maps without throw.
+`fixtures/jobs.json` length equals `JOB_COUNT`. Four packs parse as `ReplayPack`. `scripts/replay.ts` (owned by SCORER) exits 0 against them. Greenhouse fixture is valid JSON and maps without throw.

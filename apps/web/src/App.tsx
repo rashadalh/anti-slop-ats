@@ -6,7 +6,8 @@ import Recruiter from "./routes/Recruiter.tsx";
 function AppShell() {
   const { pathname } = useLocation();
   const isApplyFlow = pathname.startsWith("/apply/");
-  const widthClass = isApplyFlow ? "max-w-7xl" : "max-w-5xl";
+  const isHome = pathname === "/";
+  const widthClass = isApplyFlow || isHome ? "max-w-7xl" : "max-w-5xl";
 
   return (
     <div className={`mx-auto ${widthClass} px-4 py-6 sm:px-6 sm:py-8 lg:px-8`}>
