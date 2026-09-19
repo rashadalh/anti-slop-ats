@@ -6,6 +6,8 @@ Standalone demo that scores job applications as **auto-apply / bot (`1`)** vs **
 
 ## Architecture
 
+![Anti-Slop ATS architecture](./docs/media/anti-slop-ats-architecture.png)
+
 Four layers, one UI:
 
 | Layer | What it is |
