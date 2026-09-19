@@ -1,5 +1,5 @@
 export const LABEL_THRESHOLD = 0.7;
-export const JOB_COUNT = 2;
+export const JOB_COUNT = 18;
 export const MS_PER_S = 1000;
 export const WORDS_PER_RATE = 100;
 export const CONF_EQ_EPS = 0.01;

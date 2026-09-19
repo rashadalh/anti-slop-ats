@@ -13,7 +13,7 @@ Locked product decisions (from PLAN.md):
 
 ## 1. System overview
 
-A Vite + React app hosts two multi-section job applications and a recruiter dashboard. The apply form records per-field telemetry and a FingerprintJS `visitorId`, then asks a `BackendPort` to ingest events and score the submission. The scorer (`packages/scorer`) extracts deterministic features, applies a logistic combiner, then hard rules, and returns `label`, `probability`, `confidence`, `mode`, `reasoning`, and `features`. Locally the backend is in-memory. When `VITE_SUPABASE_URL` is set, the same scorer runs in Edge Functions and rows land in Postgres with Realtime on `detections`. A Greenhouse webhook function scores `ats_text_only` from a checked-in Harvest fixture.
+A Vite + React app hosts a careers listing of multi-section job applications and a recruiter dashboard. The apply form records per-field telemetry and a FingerprintJS `visitorId`, then asks a `BackendPort` to ingest events and score the submission. The scorer (`packages/scorer`) extracts deterministic features, applies a logistic combiner, then hard rules, and returns `label`, `probability`, `confidence`, `mode`, `reasoning`, and `features`. Locally the backend is in-memory. When `VITE_SUPABASE_URL` is set, the same scorer runs in Edge Functions and rows land in Postgres with Realtime on `detections`. A Greenhouse webhook function scores `ats_text_only` from a checked-in Harvest fixture.
 
 ```
 candidate --> apply form --telemetry--> BackendPort.ingestTelemetry
@@ -139,7 +139,7 @@ Demo form fields. Not a live Greenhouse field-type enum. EEO fields are optional
 Field { name: string, type: FieldType, label: string, required: bool, options: string[] }
 Section { id: string, title: string, fields: Field[] }
 Job {
-  id: string                      // "job_eng" | "job_ops"
+  id: string                      // fixture id; "job_eng" and "job_ops" remain stable for packs/webhook
   slug: string
   title: string
   department: string
@@ -149,7 +149,7 @@ Job {
 }
 ```
 
-Invariants: `fixtures/jobs.json` length = `JOB_COUNT` (2). Each job has sections in order `contact`, `experience`, then 3–5 open `textarea` questions, then optional `eeo`. `contact` includes `first_name`, `last_name`, `email`. No resume file field in v1.
+Invariants: `fixtures/jobs.json` length = `JOB_COUNT` (18). `job_eng` and `job_ops` stay first for replay packs and the Greenhouse fixture. Additional roles are a demo catalog inspired by public xAI / X Platform titles, locations, and departments (not live applications). Each job has sections in order `contact`, `experience`, then 3–5 open `textarea` questions, then optional `eeo`. `contact` includes `first_name`, `last_name`, `email`. No resume file field in v1.
 
 ### 3.4 TelemetryEventType
 
@@ -460,7 +460,7 @@ Channel: Postgres changes on `detections` INSERT/UPDATE. Local backend: `subscri
 | Name | Value | Unit |
 |---|---|---|
 | LABEL_THRESHOLD | 0.70 | probability |
-| JOB_COUNT | 2 | jobs |
+| JOB_COUNT | 18 | jobs |
 | MS_PER_S | 1000 | milliseconds / second |
 | WORDS_PER_RATE | 100 | words |
 | CONF_EQ_EPS | 0.01 | confidence |
@@ -573,7 +573,7 @@ Env (never commit secrets): `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `SUPA
 
 A human can:
 
-1. Open `/` and see exactly two jobs with distinct titles and departments.
+1. Open `/` and see `JOB_COUNT` jobs, filterable by team and location, including `job_eng` and `job_ops`.
 2. Apply on `/apply/:slug` through contact → experience → 3–5 questions → optional EEO; submit a slow typed application and see the recruiter list show `label=0` with reasoning that cites duration/dwell.
 3. Open `/recruiter` and see `probability`, `confidence`, `label`, `reasoning`, and features; no raw email, raw IP, or `ip_hash`.
 4. Use the replay toggle to run all four packs: `human_slow_fill` → 0, `human_ai_essays` → 0, `bot_burst` → 1, `placeholder_bot` → 1 (`hard_rule` is `placeholder_and_speed` or model ≥ threshold).

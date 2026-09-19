@@ -1,6 +1,7 @@
 import { describe, it, expect } from "vitest";
 import jobs from "../../../fixtures/jobs.json" with { type: "json" };
 import { extractFeatures, expectedHumanMs } from "../src/features.ts";
+import { JOB_COUNT } from "../src/constants.ts";
 import type { Job, Lexicons, ScoreInput } from "../src/types.ts";
 
 const lex: Lexicons = {
@@ -10,7 +11,18 @@ const lex: Lexicons = {
   datacenter_cidrs: [{ cidr: "3.0.0.0/8", name: "dc" }],
 };
 
-const job = (jobs as Job[])[0]!;
+const catalog = jobs as Job[];
+const job = catalog[0]!;
+
+describe("job catalog", () => {
+  it("matches JOB_COUNT and keeps demo ids first", () => {
+    expect(catalog).toHaveLength(JOB_COUNT);
+    expect(catalog[0]?.id).toBe("job_eng");
+    expect(catalog[1]?.id).toBe("job_ops");
+    expect(new Set(catalog.map((j) => j.slug)).size).toBe(JOB_COUNT);
+  });
+});
+
 
 function baseInput(events: ScoreInput["events"]): ScoreInput {
   return {
