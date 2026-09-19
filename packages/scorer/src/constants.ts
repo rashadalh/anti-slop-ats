@@ -74,9 +74,13 @@ export const SIGNAL_NAMES: Record<string, string> = {
 };
 
 export function emailHashPepper(): string {
-  return process.env.EMAIL_HASH_PEPPER ?? "dev-email-pepper";
+  const v =
+    typeof process !== "undefined" ? process.env?.EMAIL_HASH_PEPPER : undefined;
+  return v || "dev-email-pepper";
 }
 
 export function ipHashPepper(): string {
-  return process.env.IP_HASH_PEPPER ?? "dev-ip-pepper";
+  const v =
+    typeof process !== "undefined" ? process.env?.IP_HASH_PEPPER : undefined;
+  return v || "dev-ip-pepper";
 }

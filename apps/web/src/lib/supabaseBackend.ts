@@ -54,6 +54,8 @@ async function hashIp(ip: string): Promise<string> {
 }
 
 function remember(d: Detection): void {
+  const idx = detectionCache.findIndex((x) => x.id === d.id);
+  if (idx >= 0) detectionCache.splice(idx, 1);
   detectionCache.unshift(d);
   for (const cb of listeners) cb(d);
 }
@@ -194,6 +196,21 @@ export const supabaseBackend: BackendPort = {
     };
   },
 };
+
+/** Load persisted detections (BackendPort.listDetections is sync). */
+export async function hydrateDetections(): Promise<Detection[]> {
+  const sb = getClient();
+  const { data, error } = await sb
+    .from("detections")
+    .select("*")
+    .order("created_at_ms", { ascending: false });
+  if (error) throw new Error(error.message);
+  detectionCache.length = 0;
+  for (const row of data ?? []) {
+    detectionCache.push(rowToDetection(row as Record<string, unknown>));
+  }
+  return [...detectionCache];
+}
 
 /** Cloud listJobs helper (not on BackendPort sync signature). */
 export async function fetchJobsFromSupabase(): Promise<Job[]> {

@@ -1,13 +1,16 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import DetectionRow from "../components/DetectionRow.tsx";
 import ReplayToggle from "../components/ReplayToggle.tsx";
+import { isCloudBackend } from "../lib/backend.ts";
 import { getBackend } from "../lib/backendInstance.ts";
+import { hydrateDetections } from "../lib/supabaseBackend.ts";
 import type { Detection } from "../lib/types.ts";
 
 export default function Recruiter() {
   const [detections, setDetections] = useState<Detection[]>(() =>
     getBackend().listDetections(),
   );
+  const [loadError, setLoadError] = useState<string | null>(null);
 
   const jobTitles = useMemo(() => {
     const map = new Map<string, string>();
@@ -17,6 +20,19 @@ export default function Recruiter() {
 
   const refresh = useCallback(() => {
     setDetections(getBackend().listDetections());
+  }, []);
+
+  useEffect(() => {
+    if (!isCloudBackend()) return;
+    void (async () => {
+      try {
+        const rows = await hydrateDetections();
+        setDetections(rows);
+        setLoadError(null);
+      } catch (err) {
+        setLoadError(err instanceof Error ? err.message : "Failed to load detections");
+      }
+    })();
   }, []);
 
   useEffect(() => {
@@ -50,6 +66,10 @@ export default function Recruiter() {
       </div>
 
       <ReplayToggle onReplayed={refresh} />
+
+      {loadError ? (
+        <p className="text-sm text-rose-400">{loadError}</p>
+      ) : null}
 
       {detections.length === 0 ? (
         <p style={{ color: "var(--gh-text-60)" }}>

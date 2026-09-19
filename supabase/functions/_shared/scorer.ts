@@ -6,4 +6,9 @@ export {
   ipHashPepper,
   BURST_WINDOW_S,
   BURST_N,
-} from "../../../packages/scorer/src/index.ts";
+} from "../packages/scorer/src/index.ts";
+export type {
+  Job,
+  TelemetryEvent,
+  ClientSignals,
+} from "../packages/scorer/src/index.ts";

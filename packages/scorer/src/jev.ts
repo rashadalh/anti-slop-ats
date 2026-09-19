@@ -9,7 +9,8 @@ export interface JevState {
 export async function maybeJev(
   state: JevState,
 ): Promise<{ jev_generic: number; jev_placeholder: number; jev_ai_prose: number }> {
-  const key = process.env.TYPESAFE_API_KEY;
+  const key =
+    (typeof process !== "undefined" && process.env?.TYPESAFE_API_KEY) || "";
   if (!key) {
     return { jev_generic: 0, jev_placeholder: 0, jev_ai_prose: 0 };
   }
