@@ -1,4 +1,4 @@
-import { createHash, randomBytes } from "node:crypto";
+import { randomToken, sha256Hex } from "./crypto.ts";
 import jobs from "../../../../fixtures/jobs.json" with { type: "json" };
 import humanPack from "../../../../fixtures/packs/human_slow_fill.json" with { type: "json" };
 import botPack from "../../../../fixtures/packs/bot_burst.json" with { type: "json" };
@@ -58,19 +58,15 @@ function nowMs(): number {
 }
 
 function id(prefix: string): string {
-  return prefix + randomBytes(16).toString("base64url").slice(0, 22);
+  return prefix + randomToken(16).slice(0, 22);
 }
 
-function hashEmail(email: string): string {
-  return createHash("sha256")
-    .update(emailHashPepper() + email)
-    .digest("hex");
+async function hashEmail(email: string): Promise<string> {
+  return sha256Hex(emailHashPepper() + email);
 }
 
-function hashIp(ip: string): string {
-  return createHash("sha256")
-    .update(ipHashPepper() + ip)
-    .digest("hex");
+async function hashIp(ip: string): Promise<string> {
+  return sha256Hex(ipHashPepper() + ip);
 }
 
 function purgeExpiredSessions(): void {
@@ -101,12 +97,14 @@ function burstCounts(visitor_id: string, ip_hash: string, t: number) {
   return { visitor_n, ip_n };
 }
 
-function stripEmail(answers: AnswerMap): { answers: AnswerMap; email_hash: string } {
+async function stripEmail(
+  answers: AnswerMap,
+): Promise<{ answers: AnswerMap; email_hash: string }> {
   const copy = { ...answers };
   let email_hash = "";
   const raw = copy.email;
   if (typeof raw === "string" && raw) {
-    email_hash = hashEmail(raw);
+    email_hash = await hashEmail(raw);
     delete copy.email;
     copy.email_hash = email_hash;
   }
@@ -129,10 +127,11 @@ async function scoreAndStore(
   if (!job) throw new Error("JOB_NOT_FOUND");
 
   const t = nowMs();
-  const ip_hash = session.ip_hash || (ip ? hashIp(ip) : "");
+  const ip_hash =
+    session.ip_hash || (ip ? await hashIp(ip) : "");
   const { visitor_n, ip_n } = burstCounts(signals.visitor_id, ip_hash, t);
 
-  const { answers: storedAnswers, email_hash } = stripEmail(answers);
+  const { answers: storedAnswers, email_hash } = await stripEmail(answers);
 
   const scored = await scoreApplication({
     mode: "live_form",
@@ -188,12 +187,12 @@ export const localBackend: BackendPort = {
     purgeExpiredSessions();
     const job = (jobs as Job[]).find((j) => j.id === job_id);
     if (!job) throw new Error("JOB_NOT_FOUND");
-    const session_id = randomBytes(12).toString("base64url");
+    const session_id = randomToken(12);
     const session: ApplicationSession = {
       id: session_id,
       job_id,
       visitor_id: signals.visitor_id,
-      ip_hash: ip ? hashIp(ip) : "",
+      ip_hash: ip ? await hashIp(ip) : "",
       started_at_ms: nowMs(),
     };
     sessions.set(session_id, session);
