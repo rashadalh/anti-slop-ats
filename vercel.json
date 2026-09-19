@@ -3,5 +3,5 @@
   "buildCommand": "npm run build -w @anti-slop/web",
   "outputDirectory": "apps/web/dist",
   "framework": null,
-  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
