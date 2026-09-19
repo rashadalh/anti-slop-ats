@@ -36,4 +36,8 @@ export default defineConfig({
       allow: [repoRoot],
     },
   },
+  preview: {
+    host: "127.0.0.1",
+    port: Number(process.env.WEB_PORT) || 4173,
+  },
 });
