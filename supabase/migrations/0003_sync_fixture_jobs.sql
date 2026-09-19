@@ -1,5 +1,3 @@
--- Seed every job rendered by fixtures/jobs.json (no PII).
-
 -- Keep hosted job IDs aligned with fixtures/jobs.json, which the web application renders.
 -- This is idempotent and updates existing fixture jobs without deleting unrelated rows.
 insert into public.jobs (id, slug, title, department, location, jd_text, sections)
