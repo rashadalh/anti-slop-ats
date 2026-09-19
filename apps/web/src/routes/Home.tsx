@@ -30,6 +30,10 @@ function uniqueSorted(values: string[], rank?: (v: string) => number): string[] 
   });
 }
 
+function locationTokens(location: string): string[] {
+  return location.split(";").map((part) => part.trim()).filter(Boolean);
+}
+
 export default function Home() {
   const jobs = getBackend().listJobs();
   const [query, setQuery] = useState("");
@@ -44,7 +48,7 @@ export default function Home() {
     [jobs],
   );
   const locations = useMemo(
-    () => uniqueSorted(jobs.map((j) => j.location)),
+    () => uniqueSorted(jobs.flatMap((j) => locationTokens(j.location))),
     [jobs],
   );
 
@@ -52,7 +56,7 @@ export default function Home() {
     const q = query.trim().toLowerCase();
     return jobs.filter((job) => {
       if (department !== "All" && job.department !== department) return false;
-      if (location !== "All" && job.location !== location) return false;
+      if (location !== "All" && !locationTokens(job.location).includes(location)) return false;
       if (!q) return true;
       const hay = `${job.title} ${job.department} ${job.location} ${job.jd_text}`.toLowerCase();
       return hay.includes(q);
