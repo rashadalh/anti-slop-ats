@@ -3,3 +3,4 @@ dist/
 .vitest/
 .env
 .env.*
+!.env.example
