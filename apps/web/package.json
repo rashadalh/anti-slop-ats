@@ -1,0 +1,13 @@
+{
+  "name": "@anti-slop/web",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@anti-slop/scorer": "*",
+    "@supabase/supabase-js": "2.116.0"
+  },
+  "devDependencies": {
+    "typescript": "7.0.2",
+    "@types/node": "26.6.2"
+  }
+}

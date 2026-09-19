@@ -1,0 +1,14 @@
+project_id = "anti-slop-ats"
+
+[api]
+enabled = true
+port = 54321
+
+[functions.ingest-telemetry]
+verify_jwt = true
+
+[functions.score-application]
+verify_jwt = true
+
+[functions.greenhouse-webhook]
+verify_jwt = false

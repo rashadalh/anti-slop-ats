@@ -1,0 +1,277 @@
+{
+  "id": "bot_burst",
+  "expected_label": 1,
+  "input": {
+    "mode": "live_form",
+    "job": {
+      "id": "job_eng",
+      "slug": "eng",
+      "title": "Senior Software Engineer",
+      "department": "Engineering",
+      "location": "Remote",
+      "jd_text": "We build reliable distributed systems with Go and TypeScript. You will design APIs, improve observability, and mentor engineers. We value clarity, ownership, and pragmatic tradeoffs—not buzzword decks.",
+      "sections": [
+        {
+          "id": "contact",
+          "title": "Contact information",
+          "fields": [
+            {
+              "name": "first_name",
+              "type": "text",
+              "label": "First name",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "last_name",
+              "type": "text",
+              "label": "Last name",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "label": "Email",
+              "required": true,
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "experience",
+          "title": "Experience",
+          "fields": [
+            {
+              "name": "current_title",
+              "type": "text",
+              "label": "Current job title",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "current_company",
+              "type": "text",
+              "label": "Current company",
+              "required": true,
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "questions",
+          "title": "Application questions",
+          "fields": [
+            {
+              "name": "why_role",
+              "type": "textarea",
+              "label": "Why this role?",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "proud_project",
+              "type": "textarea",
+              "label": "Project you are proud of",
+              "required": true,
+              "options": []
+            },
+            {
+              "name": "debug_story",
+              "type": "textarea",
+              "label": "Tell us about a hard bug",
+              "required": true,
+              "options": []
+            }
+          ]
+        },
+        {
+          "id": "eeo",
+          "title": "EEO",
+          "fields": [
+            {
+              "name": "eeo_voluntary",
+              "type": "select",
+              "label": "Voluntary self-identification",
+              "required": false,
+              "options": [
+                "Decline",
+                "Yes"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "answers": {
+      "first_name": "Bot",
+      "last_name": "User",
+      "email": "bot@example.com",
+      "current_title": "Engineer",
+      "current_company": "Co",
+      "why_role": "Pasted essay content about synergy and leverage with stakeholders.",
+      "proud_project": "More pasted robust streamline content.",
+      "debug_story": "Pasted debug story utilize best-of-breed."
+    },
+    "events": [
+      {
+        "t_ms": 0,
+        "type": "focus",
+        "field": "first_name",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 20,
+        "type": "input",
+        "field": "first_name",
+        "section": null,
+        "input_len": 5,
+        "paste_len": null
+      },
+      {
+        "t_ms": 25,
+        "type": "focus",
+        "field": "last_name",
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 45,
+        "type": "input",
+        "field": "last_name",
+        "section": null,
+        "input_len": 5,
+        "paste_len": null
+      },
+      {
+        "t_ms": 50,
+        "type": "input",
+        "field": "email",
+        "section": null,
+        "input_len": 12,
+        "paste_len": null
+      },
+      {
+        "t_ms": 70,
+        "type": "input",
+        "field": "current_title",
+        "section": null,
+        "input_len": 8,
+        "paste_len": null
+      },
+      {
+        "t_ms": 75,
+        "type": "section_change",
+        "field": null,
+        "section": "questions",
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 95,
+        "type": "section_change",
+        "field": null,
+        "section": "contact",
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 115,
+        "type": "section_change",
+        "field": null,
+        "section": "questions",
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 135,
+        "type": "paste",
+        "field": "why_role",
+        "section": null,
+        "input_len": null,
+        "paste_len": 800
+      },
+      {
+        "t_ms": 155,
+        "type": "input",
+        "field": "why_role",
+        "section": null,
+        "input_len": 800,
+        "paste_len": null
+      },
+      {
+        "t_ms": 160,
+        "type": "paste",
+        "field": "proud_project",
+        "section": null,
+        "input_len": null,
+        "paste_len": 900
+      },
+      {
+        "t_ms": 180,
+        "type": "input",
+        "field": "proud_project",
+        "section": null,
+        "input_len": 900,
+        "paste_len": null
+      },
+      {
+        "t_ms": 185,
+        "type": "paste",
+        "field": "debug_story",
+        "section": null,
+        "input_len": null,
+        "paste_len": 850
+      },
+      {
+        "t_ms": 205,
+        "type": "input",
+        "field": "debug_story",
+        "section": null,
+        "input_len": 850,
+        "paste_len": null
+      },
+      {
+        "t_ms": 5000,
+        "type": "submit",
+        "field": null,
+        "section": null,
+        "input_len": null,
+        "paste_len": null
+      },
+      {
+        "t_ms": 100,
+        "type": "input",
+        "field": "email",
+        "section": null,
+        "input_len": 10,
+        "paste_len": null
+      },
+      {
+        "t_ms": 105,
+        "type": "input",
+        "field": "current_title",
+        "section": null,
+        "input_len": 10,
+        "paste_len": null
+      }
+    ],
+    "signals": {
+      "visitor_id": "fp_burst_bot",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X) Chrome/120.0.0.0",
+      "webdriver": false,
+      "tz": "America/New_York",
+      "languages": [
+        "en-US"
+      ]
+    },
+    "ip": "3.2.3.4",
+    "burst": {
+      "visitor_n": 3,
+      "ip_n": 0
+    }
+  }
+}
