@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { AnswerMap, Detection, Job } from "../lib/types.ts";
+import type { AnswerMap, Detection, Field, Job, Section } from "../lib/types.ts";
 import { getBackend } from "../lib/backendInstance.ts";
 import { loadClientSignals } from "../lib/fingerprint.ts";
 import { TelemetryCollector } from "../lib/telemetry.ts";
@@ -10,6 +10,46 @@ type Props = {
   job: Job;
   onSubmitted: (detection: Detection) => void;
 };
+
+function renderSectionFields(
+  section: Section,
+  answers: AnswerMap,
+  handlers: {
+    setAnswer: (name: string, value: string | string[] | null) => void;
+    onFocus: (name: string) => void;
+    onBlur: (name: string, len: number) => void;
+    onInput: (name: string, len: number) => void;
+    onPaste: (name: string, pasteLen: number, len: number) => void;
+  },
+) {
+  const fieldProps = (field: Field) => (
+    <FieldRenderer
+      key={field.name}
+      field={field}
+      value={answers[field.name] ?? null}
+      onChange={handlers.setAnswer}
+      onFocus={handlers.onFocus}
+      onBlur={handlers.onBlur}
+      onInput={handlers.onInput}
+      onPaste={handlers.onPaste}
+    />
+  );
+
+  if (section.id === "contact" && section.fields.length >= 3) {
+    const [first, second, ...rest] = section.fields;
+    return (
+      <>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {first ? fieldProps(first) : null}
+          {second ? fieldProps(second) : null}
+        </div>
+        {rest.map((field) => fieldProps(field))}
+      </>
+    );
+  }
+
+  return section.fields.map((field) => fieldProps(field));
+}
 
 export default function ApplicationForm({ job, onSubmitted }: Props) {
   const sections = job.sections;
@@ -97,67 +137,100 @@ export default function ApplicationForm({ job, onSubmitted }: Props) {
   if (!section) return null;
 
   const isLast = sectionIndex === sections.length - 1;
+  const isEeo = section.id === "eeo";
+
+  const fieldHandlers = {
+    setAnswer,
+    onFocus: (name: string) => telemetryRef.current?.recordFocus(name),
+    onBlur: (name: string, len: number) => telemetryRef.current?.recordBlur(name, len),
+    onInput: (name: string, len: number) => telemetryRef.current?.recordInput(name, len),
+    onPaste: (name: string, pasteLen: number, len: number) =>
+      telemetryRef.current?.recordPaste(name, pasteLen, len),
+  };
 
   return (
-    <form onSubmit={(e) => void handleSubmit(e)} className="space-y-8">
-      <SectionNav
-        sections={sections}
-        currentId={sectionId}
-        onSelect={setSectionId}
-      />
-
-      <div className="rounded-xl border border-slate-800 bg-slate-900/40 p-6">
-        <h2 className="text-lg font-semibold text-white">{section.title}</h2>
-        <div className="mt-6 space-y-5">
-          {section.fields.map((field) => (
-            <FieldRenderer
-              key={field.name}
-              field={field}
-              value={answers[field.name] ?? null}
-              onChange={setAnswer}
-              onFocus={(name) => telemetryRef.current?.recordFocus(name)}
-              onBlur={(name, len) => telemetryRef.current?.recordBlur(name, len)}
-              onInput={(name, len) => telemetryRef.current?.recordInput(name, len)}
-              onPaste={(name, pasteLen, len) =>
-                telemetryRef.current?.recordPaste(name, pasteLen, len)
-              }
-            />
-          ))}
-        </div>
+    <form
+      onSubmit={(e) => void handleSubmit(e)}
+      className="lg:grid lg:grid-cols-[minmax(11rem,14rem)_minmax(0,1fr)] lg:items-start lg:gap-10"
+      noValidate
+    >
+      <div className="mb-2 lg:sticky lg:top-6 lg:mb-0">
+        <SectionNav
+          sections={sections}
+          currentId={sectionId}
+          onSelect={setSectionId}
+        />
       </div>
 
-      {error ? (
-        <p className="text-sm text-red-400" role="alert">
-          {error}
-        </p>
-      ) : null}
+      <div className="min-w-0 space-y-6">
+        <fieldset className="apply-section-card">
+          <legend className="sr-only">{section.title}</legend>
+          <div className="border-b border-slate-800/80 px-6 py-5 sm:px-8">
+            <p className="text-xs font-semibold uppercase tracking-wider text-emerald-400/80">
+              Section {sectionIndex + 1}
+            </p>
+            <h2 className="mt-1 text-xl font-semibold tracking-tight text-white sm:text-2xl">
+              {section.title}
+            </h2>
+            {isEeo ? (
+              <p className="mt-2 max-w-prose text-sm leading-relaxed text-slate-400">
+                Responses are voluntary and used only for equal employment opportunity reporting where
+                applicable.
+              </p>
+            ) : (
+              <p className="mt-2 text-sm text-slate-400">
+                Fields marked with <span className="text-emerald-400/90">*</span> are required.
+              </p>
+            )}
+          </div>
 
-      <div className="flex flex-wrap justify-between gap-3">
-        <button
-          type="button"
-          disabled={sectionIndex === 0}
-          onClick={goPrev}
-          className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-200 disabled:opacity-40"
-        >
-          Previous
-        </button>
-        {isLast ? (
-          <button
-            type="submit"
-            disabled={submitting || !sessionId}
-            className="rounded-lg bg-emerald-600 px-5 py-2 text-sm font-medium text-white hover:bg-emerald-500 disabled:opacity-50"
-          >
-            {submitting ? "Submitting…" : "Submit application"}
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={goNext}
-            className="rounded-lg bg-slate-700 px-4 py-2 text-sm text-white hover:bg-slate-600"
-          >
-            Next section
-          </button>
-        )}
+          <div className="space-y-5 px-6 py-6 sm:px-8 sm:py-8">
+            {renderSectionFields(section, answers, fieldHandlers)}
+          </div>
+
+          {error ? (
+            <div
+              className="mx-6 mb-6 rounded-lg border border-red-900/50 bg-red-950/40 px-4 py-3 text-sm text-red-200 sm:mx-8"
+              role="alert"
+            >
+              {error}
+            </div>
+          ) : null}
+
+          <div className="apply-section-footer flex flex-wrap items-center justify-between gap-3 px-6 py-4 sm:px-8">
+            <button
+              type="button"
+              disabled={sectionIndex === 0}
+              onClick={goPrev}
+              className="inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-700 bg-slate-900/50 px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-slate-600 hover:bg-slate-800 disabled:pointer-events-none disabled:opacity-40"
+            >
+              Previous
+            </button>
+            {isLast ? (
+              <button
+                type="submit"
+                disabled={submitting || !sessionId}
+                className="inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-6 py-2.5 text-sm font-semibold text-white shadow-md shadow-emerald-950/50 transition-colors hover:bg-emerald-500 disabled:opacity-50"
+              >
+                {submitting ? "Submitting application…" : "Submit application"}
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={goNext}
+                className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-6 py-2.5 text-sm font-semibold text-slate-950 transition-colors hover:bg-slate-100"
+              >
+                Continue
+              </button>
+            )}
+          </div>
+        </fieldset>
+
+        {!sessionId ? (
+          <p className="text-center text-xs text-slate-500" aria-live="polite">
+            Preparing secure application session…
+          </p>
+        ) : null}
       </div>
     </form>
   );

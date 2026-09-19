@@ -1,5 +1,54 @@
 @import "tailwindcss";
 
-body {
-  @apply min-h-screen bg-slate-950 text-slate-100 antialiased;
+@layer base {
+  body {
+    @apply min-h-screen bg-slate-950 text-slate-100 antialiased;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
+
+@layer components {
+  .apply-page {
+    @apply pb-8;
+  }
+
+  .apply-job-panel {
+    @apply rounded-2xl border border-slate-800/80 bg-gradient-to-b from-slate-900/70 to-slate-950/90 p-6 shadow-xl shadow-black/20;
+  }
+
+  .apply-section-card {
+    @apply overflow-hidden rounded-2xl border border-slate-800/80 bg-slate-900/40 shadow-xl shadow-black/25;
+  }
+
+  .apply-section-footer {
+    @apply sticky bottom-0 border-t border-slate-800/80 bg-slate-950/90 backdrop-blur-md;
+  }
+
+  .apply-breadcrumb {
+    @apply inline-flex text-sm font-medium text-slate-400 transition-colors hover:text-white;
+  }
+
+  .apply-link {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-500;
+  }
+
+  .apply-link-secondary {
+    @apply inline-flex min-h-11 items-center justify-center rounded-lg border border-slate-700 px-5 py-2.5 text-sm font-medium text-slate-200 transition-colors hover:border-slate-600 hover:bg-slate-900/60;
+  }
+
+  .apply-empty-state {
+    @apply rounded-2xl border border-slate-800 bg-slate-900/40 p-8;
+  }
 }
