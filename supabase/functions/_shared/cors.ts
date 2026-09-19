@@ -4,10 +4,14 @@ const allowedOrigins = new Set([
   "http://localhost:5173",
   "https://anti-slop-ats-web.vercel.app",
 ]);
+const vercelPreviewOrigin =
+  /^https:\/\/anti-slop-ats-[a-z0-9]+-anti-ais-lop-ats\.vercel\.app$/;
 
 function allowedOrigin(req?: Request): string {
   const origin = req?.headers.get("Origin");
-  return origin && allowedOrigins.has(origin) ? origin : defaultOrigin;
+  return origin && (allowedOrigins.has(origin) || vercelPreviewOrigin.test(origin))
+    ? origin
+    : defaultOrigin;
 }
 
 export function corsHeaders(req?: Request): HeadersInit {
