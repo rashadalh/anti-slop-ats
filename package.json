@@ -1,0 +1,11 @@
+{
+  "name": "anti-slop-ats",
+  "private": true,
+  "workspaces": ["apps/web", "packages/scorer"],
+  "engines": {
+    "node": "22.14.0"
+  },
+  "scripts": {
+    "test:scorer": "npm run test -w @anti-slop/scorer"
+  }
+}

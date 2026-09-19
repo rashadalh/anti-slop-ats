@@ -1,0 +1,68 @@
+[
+  {
+    "id": "job_eng",
+    "slug": "eng",
+    "title": "Software Engineer",
+    "department": "Engineering",
+    "location": "Remote",
+    "jd_text": "Placeholder JD for engineering role.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact",
+        "fields": [
+          { "name": "first_name", "type": "text", "label": "First name", "required": true, "options": [] },
+          { "name": "last_name", "type": "text", "label": "Last name", "required": true, "options": [] },
+          { "name": "email", "type": "email", "label": "Email", "required": true, "options": [] }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          { "name": "current_title", "type": "text", "label": "Current title", "required": true, "options": [] }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Questions",
+        "fields": [
+          { "name": "q1", "type": "textarea", "label": "Why this role?", "required": true, "options": [] }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "job_ops",
+    "slug": "ops",
+    "title": "Operations Lead",
+    "department": "Operations",
+    "location": "New York",
+    "jd_text": "Placeholder JD for operations role.",
+    "sections": [
+      {
+        "id": "contact",
+        "title": "Contact",
+        "fields": [
+          { "name": "first_name", "type": "text", "label": "First name", "required": true, "options": [] },
+          { "name": "last_name", "type": "text", "label": "Last name", "required": true, "options": [] },
+          { "name": "email", "type": "email", "label": "Email", "required": true, "options": [] }
+        ]
+      },
+      {
+        "id": "experience",
+        "title": "Experience",
+        "fields": [
+          { "name": "current_title", "type": "text", "label": "Current title", "required": true, "options": [] }
+        ]
+      },
+      {
+        "id": "questions",
+        "title": "Questions",
+        "fields": [
+          { "name": "q1", "type": "textarea", "label": "Why operations?", "required": true, "options": [] }
+        ]
+      }
+    ]
+  }
+]

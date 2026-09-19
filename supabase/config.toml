@@ -1,0 +1,4 @@
+project_id = "anti-slop-ats"
+
+[api]
+enabled = true
