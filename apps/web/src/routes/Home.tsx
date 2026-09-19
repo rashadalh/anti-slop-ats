@@ -41,10 +41,11 @@ export default function Home() {
   const [location, setLocation] = useState("All");
 
   const departments = useMemo(
-    () => uniqueSorted(
-      jobs.map((j) => j.department),
-      departmentRank,
-    ),
+    () =>
+      uniqueSorted(
+        jobs.map((j) => j.department),
+        departmentRank,
+      ),
     [jobs],
   );
   const locations = useMemo(
@@ -76,23 +77,26 @@ export default function Home() {
   }, [filtered]);
 
   return (
-    <div>
-      <p className="mb-6 max-w-2xl text-slate-300">
-        Demo careers listing inspired by public xAI / X Platform open roles.
-        Apply on any posting — the form records timing and interaction telemetry
-        (not keystroke content) to score auto-apply vs human-filled applications.
+    <main>
+      <h1 className="gh-title gh-title-lg">Current openings at Anti-Slop</h1>
+      <p className="mt-4 max-w-2xl text-base leading-6" style={{ color: "var(--gh-text-60)" }}>
+        Demo careers listing inspired by public xAI / X Platform open roles. Apply on any posting
+        — timing and interaction telemetry (not keystroke content) is recorded so the demo can
+        score auto-apply vs human-filled applications.
       </p>
 
-      <div className="mb-8 space-y-4">
-        <label className="block">
+      <div className="mt-8 space-y-4">
+        <label className="block max-w-xl">
           <span className="sr-only">Search roles</span>
-          <input
-            type="search"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search titles, locations, teams…"
-            className="w-full rounded-xl border border-slate-800 bg-slate-900/60 px-4 py-2.5 text-sm text-white placeholder:text-slate-500 focus:border-emerald-600 focus:outline-none"
-          />
+          <div className="gh-input-shell">
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search titles, locations, teams…"
+              className="gh-control"
+            />
+          </div>
         </label>
 
         <FilterRow
@@ -109,36 +113,44 @@ export default function Home() {
         />
       </div>
 
-      <p className="mb-6 text-sm text-slate-400">
+      <p className="mt-6 text-sm" style={{ color: "var(--gh-text-60)" }}>
         {filtered.length} open role{filtered.length === 1 ? "" : "s"}
         {department !== "All" ? ` in ${department}` : ""}
         {location !== "All" ? ` · ${location}` : ""}
       </p>
 
-      {grouped.length === 0 ? (
-        <p className="rounded-xl border border-slate-800 bg-slate-900/40 px-4 py-8 text-center text-slate-400">
-          No roles match those filters.
-        </p>
-      ) : (
-        <div className="space-y-10">
-          {grouped.map(([dept, deptJobs]) => (
-            <section key={dept} aria-labelledby={`dept-${dept}`}>
-              <h2
-                id={`dept-${dept}`}
-                className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-emerald-400/90"
-              >
+      <div className="job-posts mt-8">
+        {grouped.length === 0 ? (
+          <p
+            className="rounded-[5px] border px-4 py-8 text-center text-base"
+            style={{ borderColor: "var(--gh-text-30)", color: "var(--gh-text-60)" }}
+          >
+            No roles match those filters.
+          </p>
+        ) : (
+          grouped.map(([dept, deptJobs]) => (
+            <section key={dept} className="mb-10" aria-labelledby={`dept-${dept}`}>
+              <h2 id={`dept-${dept}`} className="gh-title mb-2">
                 {dept}
               </h2>
-              <div className="grid gap-6 md:grid-cols-2">
-                {deptJobs.map((job) => (
-                  <JobCard key={job.id} job={job} />
-                ))}
-              </div>
+              <table className="gh-jobs-table">
+                <thead>
+                  <tr>
+                    <th>Job</th>
+                    <th>Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {deptJobs.map((job) => (
+                    <JobCard key={job.id} job={job} />
+                  ))}
+                </tbody>
+              </table>
             </section>
-          ))}
-        </div>
-      )}
-    </div>
+          ))
+        )}
+      </div>
+    </main>
   );
 }
 
@@ -155,7 +167,9 @@ function FilterRow({
 }) {
   return (
     <div>
-      <p className="mb-2 text-xs font-medium uppercase tracking-wide text-slate-500">{label}</p>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em]" style={{ color: "var(--gh-text-60)" }}>
+        {label}
+      </p>
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
           const active = opt === value;
@@ -164,11 +178,7 @@ function FilterRow({
               key={opt}
               type="button"
               onClick={() => onChange(opt)}
-              className={
-                active
-                  ? "rounded-full bg-emerald-600 px-3 py-1.5 text-xs font-medium text-white"
-                  : "rounded-full border border-slate-800 bg-slate-900/40 px-3 py-1.5 text-xs font-medium text-slate-300 hover:border-slate-600 hover:text-white"
-              }
+              className={active ? "gh-pill px-4 py-1.5 text-sm" : "gh-pill-secondary px-4 py-1.5 text-sm"}
             >
               {opt}
             </button>
